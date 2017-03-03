@@ -6,8 +6,13 @@
 <body>
 
 <form name="messageForm" id="messageForm" onsubmit="return send()">
-	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required=""><br>
-	<textarea rows="10" cols="50" name="message" id="message" placeholder="Enter your message" required=""></textarea>
+	<b>Phone Number</b><br>
+	<select name="dialcode" id="dialcode" required="">
+		<option value="">Select country code</option>
+	</select>
+	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required=""><br><br>
+	<b>Message</b><br>
+	<textarea rows="10" cols="50" name="message" id="message" placeholder="Enter your message" required=""></textarea><br>
 	<button type="submit">Send</button>
 </form>
 
