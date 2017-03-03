@@ -3,7 +3,7 @@ function send()
 	var phone = document.messageForm.phone.value;
 	var message = encodeURI(document.messageForm.message.value); // need to encode the text
 	
-	window.location = "whatsapp://send?text="+message+"&phone="+location+"";
+	window.location = "whatsapp://send?text="+message+"&phone="+phone+"";
 	/* 
 	this is Whatsapp's URL scheme
 	read: 
