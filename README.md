@@ -17,5 +17,9 @@ Drag and drop the files to your web
   - ```MESSAGE``` = Your text message to send
   - ```CONTACT``` = Your receipient contact number. MUST include with the country code (without ```+``` sign). Ex: 60125678964
 
+# Credits
+- Whatsapp: https://www.whatsapp.com
+- JSON List of Phone dial code for each Country Courtesy of "Goles" : https://gist.github.com/Goles/3196253 
+
 # License
 This library is under ```MIT license```, please look at the LICENSE file
