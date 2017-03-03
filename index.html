@@ -5,9 +5,9 @@
 </head>
 <body>
 
-<form id="messageForm" onsubmit="return send()">
-	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number"><br>
-	<textarea rows="30" cols="20" name="message" id="message" placeholder="Enter your message"></textarea>
+<form name="messageForm" id="messageForm" onsubmit="return send()">
+	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required=""><br>
+	<textarea rows="10" cols="50" name="message" id="message" placeholder="Enter your message" required=""></textarea>
 	<button type="submit">Send</button>
 </form>
 
