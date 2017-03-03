@@ -14,7 +14,16 @@ function populate_code()
             // Parse JSON string into object
 	    	var listcodes = JSON.parse(xobj.responseText);
 
-	    	console.log(listcodes);
+	    	for(var i=0;i<listcodes.length;i++)
+	    	{
+	    		// append each codes to select box
+	    		var option = document.createElement("option");
+				option.text = listcodes[i].name;
+				option.value = listcodes[i].dial_code.replace("+", ""); // no need for '+' sign
+				var select = document.messageForm.dialcode;
+				select.appendChild(option);
+	    	}
+	    	
           }
     };
     xobj.send(null);
