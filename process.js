@@ -31,10 +31,11 @@ function populate_code()
 
 function send()
 {
+	var dialcode = document.messageForm.dialcode.value;
 	var phone = document.messageForm.phone.value;
 	var message = encodeURI(document.messageForm.message.value); // need to encode the text
 	
-	window.location = "whatsapp://send?text="+message+"&phone="+phone+"";
+	window.location = "whatsapp://send?text="+message+"&phone="+dialcode+phone+"";
 	/* 
 	this is Whatsapp's URL scheme
 	read: 
