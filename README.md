@@ -1,5 +1,5 @@
 # Whatsapp Express
-Quick, simple script to send Whatsapp text messages directly to a contact number without having to save the contact. Can be implement in a website.
+Quick, simple script to send Whatsapp text messages directly to a contact number without having to save the contact. Can be implement in a website. Demo: https://afzafri.github.io/Whatsapp-Express/
 
 # Installation
 Drag and drop the files to your web
