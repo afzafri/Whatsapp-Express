@@ -18,7 +18,7 @@ function populate_code()
 	    	{
 	    		// append each codes to select box
 	    		var option = document.createElement("option");
-				option.text = listcodes[i].name;
+				option.text = listcodes[i].name + " ("+listcodes[i].dial_code+")";
 				option.value = listcodes[i].dial_code.replace("+", ""); // no need for '+' sign
 				var select = document.messageForm.dialcode;
 				select.appendChild(option);
