@@ -991,7 +991,7 @@
    },
    {
       "name":"Antarctica",
-      "dial_code":null,
+      "dial_code":"",
       "code":"AQ"
    },
    {
