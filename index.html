@@ -11,25 +11,47 @@
      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<h1>Whatsapp Express</h1>
-<h3>Send Whatsapp Messages directly from the browser. You can even send the message directly to a number that is not in your contact list.</h3>
+<div class="container">
 
-<form name="messageForm" id="messageForm" onsubmit="return send()">
-	<b>Phone Number</b><br>
-	<select name="dialcode" id="dialcode" required="">
-		<option value="">Select country code</option>
-	</select>
-	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required=""><br><br>
-	<b>Message</b><br>
-	<textarea rows="10" cols="50" name="message" id="message" placeholder="Enter your message"></textarea><br>
-	<button class="btn waves-effect waves-light" type="submit">
-		Send <i class="material-icons right">send</i>
-	</button>
-	<button class="btn waves-effect waves-light red" type="reset">
-		Clear <i class="material-icons right">clear_all</i>
-	</button>
-</form>
+	<h2>Whatsapp Express</h2>
+	<blockquote>Send Whatsapp Messages directly from the browser. You can even send the message directly to a number that is not in your contact list.</blockquote>
 
+	<div class="row">
+		<form name="messageForm" id="messageForm" class="col s12" onsubmit="return send()">
+
+			<label>Phone Number</label>
+			<div class="row">
+				<div class="input-field col s4">
+					<select name="dialcode" id="dialcode" required="" class="browser-default">
+						<option value="">Code</option>
+					</select>
+				</div>
+
+				<div class="input-field col s8">
+					<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required="">
+				</div>
+			</div>
+
+			<label>Message</label>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea rows="10" cols="50" name="message" id="message" class="materialize-textarea" placeholder="Enter your message"></textarea>
+				</div>
+			</div>
+
+			<button class="btn waves-effect waves-light" type="submit">
+				Send <i class="material-icons right">send</i>
+			</button>
+			<button class="btn waves-effect waves-light red" type="reset">
+				Clear <i class="material-icons right">clear_all</i>
+			</button>
+		</form>
+	</div>
+
+</div>
+
+<!-- load process scripts -->
 <script type="text/javascript" src="./process.js"></script>
+
 </body>
 </html>
