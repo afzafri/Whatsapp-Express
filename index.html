@@ -4,6 +4,11 @@
 	<title>Whatsapp Express</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+	<!-- Materialize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<!--Import Google Icon Font-->
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <h1>Whatsapp Express</h1>
@@ -17,8 +22,12 @@
 	<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required=""><br><br>
 	<b>Message</b><br>
 	<textarea rows="10" cols="50" name="message" id="message" placeholder="Enter your message"></textarea><br>
-	<button type="submit">Send</button>
-	<button type="reset">Clear</button>
+	<button class="btn waves-effect waves-light" type="submit">
+		Send <i class="material-icons right">send</i>
+	</button>
+	<button class="btn waves-effect waves-light red" type="reset">
+		Clear <i class="material-icons right">clear_all</i>
+	</button>
 </form>
 
 <script type="text/javascript" src="./process.js"></script>
