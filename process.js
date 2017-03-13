@@ -27,7 +27,6 @@ function populate_code()
           }
     };
     xobj.send(null);
-    alert(isMobile()); // test script
 }
 
 function send()
