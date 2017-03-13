@@ -16,7 +16,11 @@ Drag and drop the files to your web
 - Read:
   - https://www.whatsapp.com/faq/en/general/26000030
   - https://www.whatsapp.com/faq/en/android/28000012
-- The URL is: whatsapp://send?text=```MESSAGE```&phone=```CONTACT```
+- The URL is: 
+  - Mobile:
+    - whatsapp://send?text=```MESSAGE```&phone=```CONTACT```
+  - Desktop:
+    - https://web<span></span>.whatsapp.com/send?text=```MESSAGE```&phone=```CONTACT```
   - ```MESSAGE``` = Your text message to send
   - ```CONTACT``` = Your receipient contact number. MUST include with the country code (without ```+``` sign). Ex: 60125678964
 
