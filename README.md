@@ -1,5 +1,6 @@
 # Whatsapp Express
 Quick, simple script to send Whatsapp text messages directly to a contact number without having to save the contact. Can be implement in a website. <br>
+Both Mobile and Desktop browser are supported. <br>
 Demo: https://afzafri.github.io/Whatsapp-Express/ <br><br>
 <img src="https://github.com/afzafri/Whatsapp-Express/blob/master/screenshot.png" alt="Whatsapp Express Screenshot" width="250">
 
@@ -23,6 +24,7 @@ Drag and drop the files to your web
 - Whatsapp: https://www.whatsapp.com
 - JSON List of Phone dial code for each Country Courtesy of "Goles" : https://gist.github.com/Goles/3196253 
 - Materialize: http://materializecss.com/
+- Detect mobile browsers script: http://detectmobilebrowsers.com/
 
 # License
 This library is under ```MIT license```, please look at the LICENSE file
