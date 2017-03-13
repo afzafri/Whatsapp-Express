@@ -46,7 +46,8 @@ function send()
 		}
 		else
 		{
-			alert("Sorry only mobile is supported for now.");
+			window.location = "https://web.whatsapp.com/send?text="+message+"&phone="+phone;
+			// open whatsapp web to send message for desktop
 		}
 	}
 	else
