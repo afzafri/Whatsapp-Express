@@ -35,16 +35,19 @@ function send()
 	var phone = dialcode + document.messageForm.phone.value;
 	var message = encodeURI(document.messageForm.message.value); // need to encode the text
 	
-	// validation
+	// validation, check if phone number is valid number
 	if(!isNaN(phone))
-	{
-		window.location = "whatsapp://send?text="+message+"&phone="+phone;
-		/* 
-		this is Whatsapp's URL scheme
-		read: 
-		https://www.whatsapp.com/faq/en/general/26000030
-		https://www.whatsapp.com/faq/en/android/28000012
-		*/
+	{	
+		// check if mobile browser or desktop
+		if(isMobile())
+		{
+			window.location = "whatsapp://send?text="+message+"&phone="+phone;
+			// whatsapp url scheme for mobile
+		}
+		else
+		{
+			alert("Sorry only mobile is supported for now.");
+		}
 	}
 	else
 	{
