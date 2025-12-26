@@ -152,20 +152,60 @@ document.getElementById("currentYear").innerHTML = new Date().getFullYear();
 // Dark Mode Toggle Functionality
 function updateDarkModeButtonState(isCurrentlyDarkModeEnabled) {
 	const element = document.getElementById('theme-switch');
+	if (!element) return;
 	const icon = element.querySelector('i');
-	icon.innerText = isCurrentlyDarkModeEnabled ? 'light_mode' : 'dark_mode';
-	element.title = 'Switch to ' + (isCurrentlyDarkModeEnabled ? 'light' : 'dark') + ' mode';
+	if (icon) {
+		icon.innerText = isCurrentlyDarkModeEnabled ? 'light_mode' : 'dark_mode';
+	}
+	element.setAttribute('title', 'Switch to ' + (isCurrentlyDarkModeEnabled ? 'light' : 'dark') + ' mode');
 }
 
-// Init Theme Toggle Button
-const darkModeButton = document.getElementById('theme-switch');
-if (darkModeButton) {
-	darkModeButton.addEventListener('click', (e) => {
+function toggleTheme(e) {
+	if (e) {
 		e.preventDefault();
-		const nextState = !getTheme(); // toggle
-		setTheme(nextState);
+		e.stopPropagation();
+	}
+	try {
+		const nextState = !window.getTheme();
+		window.setTheme(nextState);
 		updateDarkModeButtonState(nextState);
-	});
-	const initialState = getTheme();
-	updateDarkModeButtonState(initialState);
+		console.log('Theme toggled to:', nextState ? 'dark' : 'light');
+	} catch (error) {
+		console.error('Error toggling theme:', error);
+	}
+}
+
+// Init Theme Toggle Button - ensure DOM is ready
+function initDarkModeToggle() {
+	const darkModeButton = document.getElementById('theme-switch');
+	console.log('Dark mode button found:', !!darkModeButton);
+
+	if (darkModeButton) {
+		// Add onclick directly for maximum compatibility
+		darkModeButton.onclick = function(e) {
+			console.log('Button clicked!');
+			toggleTheme(e);
+			return false;
+		};
+
+		// Also add touch handler
+		darkModeButton.ontouchend = function(e) {
+			console.log('Button touched!');
+			e.preventDefault();
+			toggleTheme(e);
+			return false;
+		};
+
+		// Set initial state
+		const initialState = window.getTheme();
+		updateDarkModeButtonState(initialState);
+		console.log('Dark mode toggle initialized, current theme:', initialState ? 'dark' : 'light');
+	}
+}
+
+// Initialize after DOM is ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initDarkModeToggle);
+} else {
+	initDarkModeToggle();
 }

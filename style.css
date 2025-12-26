@@ -1,0 +1,189 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.material-icons {
+    text-rendering: optimizeLegibility;
+}
+
+.choices {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.choices__inner {
+    background-color: transparent;
+    width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    border: none;
+    border-bottom: 1px solid var(--md-sys-color-on-surface-variant);
+    border-radius: 0;
+    min-height: 2rem;
+}
+
+.choices__inner:focus,
+.choices.is-focused .choices__inner {
+    border-bottom: 1px solid var(--md-sys-color-primary);
+    box-shadow: 0 1px 0 0 var(--md-sys-color-primary);
+}
+
+.choices__list--single .choices__item {
+    color: var(--md-sys-color-on-surface);
+}
+
+.choices__list--dropdown {
+    border-radius: 2px !important;
+    border: 1px solid var(--md-sys-color-outline-variant) !important;
+    z-index: 1000;
+    background-color: var(--md-sys-color-surface, #fff) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .choices__list--dropdown {
+        background-color: var(--md-sys-color-surface, #2b2b2b) !important;
+    }
+}
+
+.choices__list--dropdown .choices__item {
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: var(--md-sys-color-surface-container-high) !important;
+}
+
+.choices[data-type*="select-one"] .choices__input {
+    border-bottom: 1px solid var(--md-sys-color-outline-variant) !important;
+    margin-bottom: 8px;
+    background-color: transparent !important;
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+.choices[data-type*="select-one"] .choices__input::placeholder {
+    color: var(--md-sys-color-on-surface-variant) !important;
+}
+
+.choices.is-open .choices__list--dropdown {
+    z-index: 1000;
+}
+
+.choices__item--choice {
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+.choices__group .choices__heading {
+    color: var(--md-sys-color-on-surface-variant) !important;
+}
+
+.choices__list--single .choices__item {
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+.action-btns {
+    display: flex;
+    gap: 0.5rem
+}
+
+blockquote {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+#theme-switch {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+#theme-switch:hover i,
+#theme-switch:focus i {
+    color: #ffffff !important;
+}
+
+#theme-switch i {
+    pointer-events: none !important;
+}
+
+@media only screen and (min-width: 601px) {
+    .brand-logo {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile responsive improvements */
+@media only screen and (max-width: 600px) {
+    .choices__inner {
+        font-size: 14px;
+    }
+
+    .choices__list--dropdown .choices__item {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .choices[data-type*="select-one"] .choices__input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    nav .container {
+        width: 100% !important;
+        padding: 0 15px !important;
+    }
+
+    .brand-logo {
+        width: 70% !important;
+        font-size: 1.3rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    .brand-logo i {
+        font-size: 1.3rem !important;
+        margin-left: 5px !important;
+    }
+
+    nav .right {
+        position: relative !important;
+        z-index: 100 !important;
+    }
+
+    #theme-switch {
+        padding: 0 10px !important;
+    }
+
+    blockquote {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    .row {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .row.mb-6 {
+        margin-bottom: 1rem !important;
+    }
+
+    main {
+        padding: 1rem 0 !important;
+    }
+
+    .container {
+        padding: 0 15px !important;
+    }
+}
