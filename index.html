@@ -19,6 +19,8 @@
 		window.getTheme = function() {
 			const isDarkModeEnabledViaCss = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 			const currentTheme = localStorage.getItem('theme');
+			// If theme is explicitly set in localStorage, use it
+			// Otherwise, fall back to system preference
 			const isDark = currentTheme ? currentTheme === 'dark' : isDarkModeEnabledViaCss;
 			return isDark;
 		};
