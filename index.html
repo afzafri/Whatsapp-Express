@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 	<!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Choices.js -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 
     <style type="text/css">
 		body {
@@ -23,6 +25,54 @@
 
 		.material-icons {
 		    text-rendering: optimizeLegibility;
+		}
+
+		/* Choices.js customization to match Materialize */
+		.choices__inner {
+			background-color: rgba(255, 255, 255, 0.9);
+			width: 100%;
+			padding: 5px;
+			border: 1px solid #f2f2f2;
+			border-radius: 2px;
+			min-height: 3rem;
+		}
+
+		.choices__inner:focus,
+		.choices.is-focused .choices__inner {
+			border-color: #f2f2f2;
+		}
+
+		.choices__list--dropdown {
+			border-radius: 2px;
+			border: 1px solid #f2f2f2;
+			z-index: 1000;
+		}
+
+		.choices[data-type*="select-one"] .choices__input {
+			border-bottom: 1px solid #f2f2f2;
+			margin-bottom: 8px;
+			background-color: rgba(255, 255, 255, 0.9);
+		}
+
+		.choices.is-open .choices__list--dropdown {
+			z-index: 1000;
+		}
+
+		/* Mobile responsive improvements */
+		@media only screen and (max-width: 600px) {
+			.choices__inner {
+				font-size: 14px;
+			}
+
+			.choices__list--dropdown .choices__item {
+				padding: 12px 16px;
+				font-size: 14px;
+			}
+
+			.choices[data-type*="select-one"] .choices__input {
+				padding: 8px;
+				font-size: 14px;
+			}
 		}
     </style>
 </head>
@@ -52,13 +102,13 @@
 
 				<label>Phone Number</label>
 				<div class="row">
-					<div class="input-field col s4">
-						<select name="dialcode" id="dialcode" required="" class="browser-default">
-							<option value="">Code</option>
+					<div class="input-field col s12 m4 l4">
+						<select name="dialcode" id="dialcode" required="">
+							<option value="" disabled selected>Select Country Code</option>
 						</select>
 					</div>
 
-					<div class="input-field col s8">
+					<div class="input-field col s12 m8 l8">
 						<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required="">
 					</div>
 				</div>
@@ -85,11 +135,13 @@
 <footer class="page-footer">
 	<div class="footer-copyright">
 		<div class="container">
-			Afif Zafri © 2016 - <a href="https://github.com/afzafri/Whatsapp-Express">GitHub Project Page</a>
+			Afif Zafri © 2016 - <span id="currentYear"></span> - <a href="https://github.com/afzafri/Whatsapp-Express">GitHub Project Page</a>
 		</div>
 	</div>
 </footer>
 
+<!-- Choices.js -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <!-- load process scripts -->
 <script type="text/javascript" src="./process.js"></script>
 

@@ -1,8 +1,33 @@
 [
    {
-      "name":"Israel",
-      "dial_code":"+972",
-      "code":"IL"
+      "name":"Malaysia",
+      "dial_code":"+60",
+      "code":"MY"
+   },
+   {
+      "name":"Singapore",
+      "dial_code":"+65",
+      "code":"SG"
+   },
+   {
+      "name":"Indonesia",
+      "dial_code":"+62",
+      "code":"ID"
+   },
+   {
+      "name":"Thailand",
+      "dial_code":"+66",
+      "code":"TH"
+   },
+   {
+      "name":"Philippines",
+      "dial_code":"+63",
+      "code":"PH"
+   },
+   {
+      "name":"Brunei Darussalam",
+      "dial_code":"+673",
+      "code":"BN"
    },
    {
       "name":"Afghanistan",
@@ -440,11 +465,6 @@
       "code":"IN"
    },
    {
-      "name":"Indonesia",
-      "dial_code":"+62",
-      "code":"ID"
-   },
-   {
       "name":"Iraq",
       "dial_code":"+964",
       "code":"IQ"
@@ -453,11 +473,6 @@
       "name":"Ireland",
       "dial_code":"+353",
       "code":"IE"
-   },
-   {
-      "name":"Israel",
-      "dial_code":"+972",
-      "code":"IL"
    },
    {
       "name":"Italy",
@@ -548,11 +563,6 @@
       "name":"Malawi",
       "dial_code":"+265",
       "code":"MW"
-   },
-   {
-      "name":"Malaysia",
-      "dial_code":"+60",
-      "code":"MY"
    },
    {
       "name":"Maldives",
@@ -735,11 +745,6 @@
       "code":"PE"
    },
    {
-      "name":"Philippines",
-      "dial_code":"+63",
-      "code":"PH"
-   },
-   {
       "name":"Poland",
       "dial_code":"+48",
       "code":"PL"
@@ -805,11 +810,6 @@
       "code":"SL"
    },
    {
-      "name":"Singapore",
-      "dial_code":"+65",
-      "code":"SG"
-   },
-   {
       "name":"Slovakia",
       "dial_code":"+421",
       "code":"SK"
@@ -873,11 +873,6 @@
       "name":"Tajikistan",
       "dial_code":"+992",
       "code":"TJ"
-   },
-   {
-      "name":"Thailand",
-      "dial_code":"+66",
-      "code":"TH"
    },
    {
       "name":"Togo",
@@ -998,11 +993,6 @@
       "name":"Bolivia, Plurinational State of",
       "dial_code":"+591",
       "code":"BO"
-   },
-   {
-      "name":"Brunei Darussalam",
-      "dial_code":"+673",
-      "code":"BN"
    },
    {
       "name":"Cocos (Keeling) Islands",
