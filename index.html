@@ -5,8 +5,8 @@
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-	<!-- Materialize -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<!-- Materialize CSS v2.2.2 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/css/materialize.min.css">
 	<!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Choices.js -->
@@ -28,34 +28,93 @@
 		}
 
 		/* Choices.js customization to match Materialize */
-		.choices__inner {
-			background-color: rgba(255, 255, 255, 0.9);
+		.choices {
 			width: 100%;
-			padding: 5px;
-			border: 1px solid #f2f2f2;
-			border-radius: 2px;
-			min-height: 3rem;
+			margin-top: 1rem;
+		}
+
+		.choices__inner {
+			background-color: transparent;
+			width: 100%;
+			padding-top: 0.6rem;
+			padding-bottom: 0.6rem;
+			border: none;
+			border-bottom: 1px solid var(--md-sys-color-on-surface-variant);
+			border-radius: 0;
+			min-height: 2rem;
 		}
 
 		.choices__inner:focus,
 		.choices.is-focused .choices__inner {
-			border-color: #f2f2f2;
+			border-bottom: 1px solid var(--md-sys-color-primary);
+			box-shadow: 0 1px 0 0 var(--md-sys-color-primary);
+		}
+
+		.choices__list--single .choices__item {
+			color: var(--md-sys-color-on-surface);
 		}
 
 		.choices__list--dropdown {
-			border-radius: 2px;
-			border: 1px solid #f2f2f2;
+			border-radius: 2px !important;
+			border: 1px solid var(--md-sys-color-outline-variant) !important;
 			z-index: 1000;
+			background-color: var(--md-sys-color-surface, #fff) !important;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.choices__list--dropdown {
+				background-color: var(--md-sys-color-surface, #2b2b2b) !important;
+			}
+		}
+
+		.choices__list--dropdown .choices__item {
+			color: var(--md-sys-color-on-surface) !important;
+		}
+
+		.choices__list--dropdown .choices__item--selectable.is-highlighted {
+			background-color: var(--md-sys-color-surface-container-high) !important;
 		}
 
 		.choices[data-type*="select-one"] .choices__input {
-			border-bottom: 1px solid #f2f2f2;
+			border-bottom: 1px solid var(--md-sys-color-outline-variant) !important;
 			margin-bottom: 8px;
-			background-color: rgba(255, 255, 255, 0.9);
+			background-color: transparent !important;
+			color: var(--md-sys-color-on-surface) !important;
+		}
+
+		.choices[data-type*="select-one"] .choices__input::placeholder {
+			color: var(--md-sys-color-on-surface-variant) !important;
 		}
 
 		.choices.is-open .choices__list--dropdown {
 			z-index: 1000;
+		}
+
+		.choices__item--choice {
+			color: var(--md-sys-color-on-surface) !important;
+		}
+
+		.choices__group .choices__heading {
+			color: var(--md-sys-color-on-surface-variant) !important;
+		}
+
+		.choices__list--single .choices__item {
+			color: var(--md-sys-color-on-surface) !important;
+		}
+
+		.action-btns {
+			display: flex;
+			gap: 0.5rem
+		}
+
+		blockquote {
+			margin-top: 2rem;
+			margin-bottom: 2.5rem;
+		}
+
+		#theme-switch:hover i,
+		#theme-switch:focus i {
+			color: #ffffff !important;
 		}
 
 		/* Mobile responsive improvements */
@@ -73,16 +132,49 @@
 				padding: 8px;
 				font-size: 14px;
 			}
+
+			.brand-logo {
+				width: 90% !important;
+				font-size: 1.5rem !important;
+			}
+
+			.brand-logo i {
+				font-size: 1.5rem !important;
+				margin-left: 15px !important;
+			}
 		}
     </style>
+
+	<!-- Theme Loading Script - Must be loaded first to avoid flickering -->
+	<script>
+		function getTheme() {
+			const isDarkModeEnabledViaCss = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const currentTheme = localStorage.getItem('theme');
+			const isDark = currentTheme ? currentTheme === 'dark' : isDarkModeEnabledViaCss;
+			return isDark;
+		}
+		function setTheme(enableDark) {
+			document.documentElement.setAttribute('theme', enableDark ? 'dark' : 'light');
+			localStorage.setItem('theme', enableDark ? 'dark' : 'light');
+		}
+		const currentState = getTheme();
+		setTheme(currentState);
+	</script>
 </head>
 <body>
 
 <header>
-	<nav class="top-nav">
-		<div class="container">
-			<div class="nav-wrapper">
+	<nav class="nav navbar">
+		<div class="nav-wrapper primary">
+			<div class="container">
 				<a class="brand-logo"><i class="material-icons">question_answer</i> Whatsapp Express</a>
+				<ul class="right" aria-hidden="false">
+					<li>
+						<a id="theme-switch" href="#" title="Switch to dark mode" tabindex="0">
+							<i class="material-icons">dark_mode</i>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -91,55 +183,53 @@
 <main>
 	<div class="container">
 
-		<div class="row">
-			<blockquote>
-				Send Whatsapp Messages directly from the browser. You can even send the message directly to a number that is not in your contact list.
-			</blockquote>
-		</div>
+		<blockquote>
+			Send Whatsapp Messages directly from the browser. You can even send the message directly to a number that is not
+			in your contact list.
+		</blockquote>
 
-		<div class="row">
-			<form name="messageForm" id="messageForm" class="col s12" onsubmit="return send()">
+		<form name="messageForm" id="messageForm" onsubmit="return send()">
 
-				<label>Phone Number</label>
-				<div class="row">
-					<div class="input-field col s12 m4 l4">
-						<select name="dialcode" id="dialcode" required="">
-							<option value="" disabled selected>Select Country Code</option>
-						</select>
-					</div>
-
-					<div class="input-field col s12 m8 l8">
-						<input type="text" name="phone" id="phone" placeholder="Enter your receipient phone number" required="">
-					</div>
+			<div class="row mb-6">
+				<div class="col s12 m4 l4">
+					<select name="dialcode" id="dialcode" required="">
+						<option value="" disabled selected>Select Country Code</option>
+					</select>
 				</div>
 
-				<label>Message</label>
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea rows="10" cols="50" name="message" id="message" class="materialize-textarea" placeholder="Enter your message"></textarea>
-					</div>
+				<div class="input-field col s12 m8 l8">
+					<input type="text" name="phone" id="phone" placeholder=" " required="">
+					<label for="phone">Phone Number</label>
 				</div>
+			</div>
 
-				<button class="btn waves-effect waves-light" type="submit">
-					Send <i class="material-icons right">send</i>
-				</button>
-				<button class="btn waves-effect waves-light red" type="reset">
-					Clear <i class="material-icons right">clear_all</i>
-				</button>
-			</form>
-		</div>
+			<div class="row mb-6">
+				<div class="input-field col s12">
+					<textarea name="message" id="message" class="materialize-textarea" placeholder=" "></textarea>
+					<label for="message">Message</label>
+				</div>
+			</div>
+
+			<div class="action-btns">
+				<button tabindex="0" class="btn elevated icon-right light-blue darken-2 white-text" type="submit"> <i class="material-icons">send</i>Send </button>
+				<button tabindex="0" class="btn elevated icon-right" type="reset"> <i class="material-icons">clear_all</i>Clear </button>
+			</div>
+		</form>
 
 	</div>
 </main>
 
-<footer class="page-footer">
-	<div class="footer-copyright">
-		<div class="container">
-			Afif Zafri © 2016 - <span id="currentYear"></span> - <a href="https://github.com/afzafri/Whatsapp-Express">GitHub Project Page</a>
+<footer class="page-footer pt-0">
+	<div class="container">
+		<div class="footer-copyright">
+			<span>Afif Zafri © 2016 - <span id="currentYear"></span></span>
+			<a class="right" href="https://github.com/afzafri/Whatsapp-Express">GitHub Project Page</a>
 		</div>
 	</div>
 </footer>
 
+<!-- Materialize CSS v2.2.2 -->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/js/materialize.min.js"></script>
 <!-- Choices.js -->
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <!-- load process scripts -->

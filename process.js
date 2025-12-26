@@ -148,3 +148,24 @@ function send()
 
 // set current year
 document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+// Dark Mode Toggle Functionality
+function updateDarkModeButtonState(isCurrentlyDarkModeEnabled) {
+	const element = document.getElementById('theme-switch');
+	const icon = element.querySelector('i');
+	icon.innerText = isCurrentlyDarkModeEnabled ? 'light_mode' : 'dark_mode';
+	element.title = 'Switch to ' + (isCurrentlyDarkModeEnabled ? 'light' : 'dark') + ' mode';
+}
+
+// Init Theme Toggle Button
+const darkModeButton = document.getElementById('theme-switch');
+if (darkModeButton) {
+	darkModeButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		const nextState = !getTheme(); // toggle
+		setTheme(nextState);
+		updateDarkModeButtonState(nextState);
+	});
+	const initialState = getTheme();
+	updateDarkModeButtonState(initialState);
+}
